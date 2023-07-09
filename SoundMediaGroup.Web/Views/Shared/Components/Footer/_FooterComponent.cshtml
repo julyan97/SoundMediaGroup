@@ -1,4 +1,15 @@
-﻿<section class="u-clearfix u-container-align-center u-custom-color-5 u-section-4 customFooter" id="carousel_98a2" style="padding:3em">
+﻿@using WebApplication1.Services.Interfaces;
+@inject IResourceService _service;
+@{
+    var contacts = _service.GetContactsInfo().Description;
+    var categories =string.Join ("\n", _service
+        .GetHomeInfo()
+        .Contents
+        .Select(x=> x.Name)
+        .ToList());
+}
+
+<section class="u-clearfix u-container-align-center u-custom-color-5 u-section-4 customFooter" id="carousel_98a2" style="padding:3em">
     <div class="u-clearfix u-sheet u-sheet-1">
             <div class="home-max-width3 max-width-container">
                 <footer class="home-footer1">
@@ -12,25 +23,14 @@
                     
                     @* Configurate*@
                     <div style="white-space:pre-line;font-size: 20px">
-                        
-                        Group
-                        бул. „Ген. Тотлебен“ 57, 1606 кв. Крива река, София
-                        +359 88 230 6718
-
-                        dbbenkov@gmail.com
+                        @contacts
                         </div>
                     </div>
                 <div class="home-links-container" style="padding:0 3em 0 3em">
                     <div class="home-container26" style="padding:0 3em 0 3em">
                         <h3>Categories</h3>
                             <div style="white-space:pre-line; font-size:23px">
-                            Аудио пост
-                            Музика
-                            Дублаж
-                            Звуков Дизайн
-                            Звук на терен
-                            Резтавриране
-                            звук
+                            @categories
                             </div>
                         </div>
                     </div>
