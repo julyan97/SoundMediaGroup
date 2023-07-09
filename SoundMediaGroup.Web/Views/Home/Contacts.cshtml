@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Contacts";
+}
+
+@using WebApplication1.Models.ContactsModel;
+@model ContactsOutputModel;
+<div>
+    <link href="~/css/contacts.css" rel="stylesheet" />
+
+
+    <div class="contacts-container text-white">
+        <h3 class="contacts-address contacts-text text-white" style="white-space: pre-line">
+            @Model.Description
+        </h3>
+        <div class="contacts-container1">
+            <div class="contacts-container2">
+                <iframe src="@Model.GoogleMapsScr"
+                        class="contacts-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

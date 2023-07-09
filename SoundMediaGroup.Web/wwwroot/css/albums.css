@@ -1,0 +1,74 @@
+﻿.albums-container
+{
+    padding-top: 5em;
+    min-height: 40em;
+    text-align: center;
+}
+
+.mp-container {
+    margin: 0 auto 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(8,26,43,0.75);
+    width: 40em;
+    min-height: 3em;
+    border-radius: 1em;
+}
+
+
+.mp-image {
+    position: absolute; /* Allows you to position the image with respect to the container */
+    top: 0;
+    left: .5em;
+    height:3em;
+    width: 3em;
+}
+
+span {
+    position: relative;
+    z-index: 1; /* Puts the span above the image */
+}
+
+.pl-container
+{
+    color: white;
+}
+
+
+.video {
+    cursor: pointer;
+}
+
+
+#popup-player {
+    height: 100%; /* adjust as per your needs */
+    width: 100%; /* adjust as per your needs */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(8,26,43,0.80);
+    padding: 20px;
+    z-index: 9999;
+    display: flex; /* Added */
+    justify-content: center; /* Added */
+    align-items: center; /* Added */
+    flex-direction: column; /* Added to stack items vertically */
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+#player {
+    max-height: 80em; /* adjust as per your needs */
+    max-width: 100%; /* adjust as per your needs */
+}
+
+#close-btn {
+    margin-top: 20px; /* Space between the video player and the close button */
+}

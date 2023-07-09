@@ -1,0 +1,24 @@
+.about-us-container {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+/*  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(204, 251, 250) 100.00%);
+*/}
+.about-us-image {
+  width: 446px;
+  height: 302px;
+  object-fit: cover;
+}
+.about-us-text {
+    text-align: center;
+    display:block;
+    padding: 0 200px 0 200px !important;
+}
+
+.about-us-container
+{
+    color : white 
+}

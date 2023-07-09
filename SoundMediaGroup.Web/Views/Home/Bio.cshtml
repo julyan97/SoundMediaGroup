@@ -1,0 +1,18 @@
+﻿@using WebApplication1.Models.BioModels;
+@model BioOutputModel;
+@{
+    ViewBag.Title = "Bio";
+}
+<div>
+    <link href="~/css/about-us.css" rel="stylesheet" />
+
+    <div class="about-us-container">
+        <img alt="image"
+             src="@Model.ProfilePhotoPath"
+             class="about-us-image" />
+        <h3 class="about-us-text" style="white-space:pre-line">
+            @Model.Description
+        </h3>
+    </div>
+</div>
+<script src="https://unpkg.com/@@teleporthq/teleport-custom-scripts"></script>

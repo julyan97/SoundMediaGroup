@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@using WebApplication1.Models.HomeModels;
+@model HomeOutputModel
+
+
+<link rel="stylesheet" href="~/css/home.css" media="screen">
+<link rel="stylesheet" href="~/css/Home1.css" media="screen">
+<div class="main-container">
+
+
+
+    <section class="u-clearfix u-custom-color-8 u-section-1" id="sec-33ec">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-left u-custom-font u-font-playfair-display u-text u-text-default u-text-1">@Model.Intro.Heading</h1>
+            <p class="u-text u-text-2">
+                @Model.Intro.Description
+            </p>
+        </div>
+    </section>
+    @*template*@
+    @{
+        int index = 0;
+    }
+    @foreach (var file in Model.Contents)
+    {
+        <div id ="@index" class="home-container08 max-width-container" style="background-color: rgba(8,26,43,0.4)">
+            <div @*class="home-container09"*@
+                 style="width: 1140px;
+                            min-height: 159px;
+                            display: flex;
+                            align-items: center;
+                            background-size: cover;
+                            justify-content: center;
+                            background-image: url('@file.Img');
+                            background-position: center;">
+
+                <h1 class="home-text025">@file.Name</h1>
+            </div>
+            <div class="home-container10">
+                <h3 class="home-text026" style="display:contents; white-space: pre-line; font-size:20px; font-weight:bold">
+                   @file.Text
+                </h3>
+
+            </div>
+        </div>
+        index++;
+    }
+
+    @*template end*@
+
+    <div class="home-trending-items section-container">
+        <div class="section-heading-section-heading">
+            <h1 class="section-heading-text Heading-2">
+                <span>Galery</span>
+            </h1>
+            <span class="section-heading-text1"><span></span></span>
+        </div>
+        <div class="home-max-width2 max-width-container">
+            <div class="home-gallery">
+                <div class="home-left">
+                    <img alt="image" src="https://images.unsplash.com/photo-1507246249828-b7a6c99f2ce1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE4fHxzdHVkaW8lMjBtaWN8ZW58MHx8fHwxNjg1MDA5NTM5fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;h=1200" class="home-image05">
+                </div>
+                <div class="home-right1">
+                    <div class="home-top">
+                        <div class="home-left1">
+                            <img alt="image" src="https://images.unsplash.com/photo-1581092800573-6afa755dcdc7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEyMnx8c3R1ZGlvJTIwbWljfGVufDB8fHx8MTY4NTAwOTc5OXww&amp;ixlib=rb-4.0.3&amp;q=80&amp;h=600" class="home-image06">
+                        </div>
+                        <div class="home-right2">
+                            <img alt="image" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEyfHxib29tJTIwbWljfGVufDB8fHx8MTY4NTAxMzY2Mnww&amp;ixlib=rb-4.0.3&amp;q=80&amp;h=600" class="home-image07">
+                        </div>
+                    </div>
+                    <div class="home-bottom">
+                        <div class="home-left2">
+                            <img alt="image" src="https://images.unsplash.com/photo-1573339887531-4b092b198f3a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDIyfHxkcnVtc3xlbnwwfHx8fDE2ODUwMTM5MDZ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;h=600" class="home-image08">
+                        </div>
+                        <div class="home-right3">
+                            <img alt="image" src="https://images.unsplash.com/photo-1599109289179-08e08a905a28?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDI2fHxib29tJTIwbWljfGVufDB8fHx8MTY4NTAxMzY3M3ww&amp;ixlib=rb-4.0.3&amp;q=80&amp;h=600" class="home-image09">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-full-width-banner section-container" style="padding:7em">
+        <div class="home-left3">
+            <div class="home-content">
+                <span class="home-text195" style="color: white !important">Book A Session</span>
+            </div>
+            <a href="@Url.Action("Contacts", "Home")" class="home-navlink">
+                <div class="home-btn button">
+                    <span class="home-text197">BOOK NOW</span>
+                </div>
+            </a>
+        </div>
+        <img alt="image" src="https://images.unsplash.com/photo-1556848797-e26fc1b2d6cc?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8c2VhcmNofDM2fHxkcnVtc3xlbnwwfHx8fDE2ODUwMTM5MjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=800" class="home-image10">
+    </div>
+
+
+</div>

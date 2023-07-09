@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Portfolio";
+}
+
+@using WebApplication1.Models.PortfolioModels;
+@model PortfolioOutputModel
+
+<link rel="stylesheet" href="~/css/albums.css" media="screen">
+<script src="~/js/albums.js"></script>
+
+
+<div class="albums-container text-center" style="margin-bottom:5em">
+    <h1 class="pl-container">Portfolio</h1>
+
+    @if (Model.MP4s.Count != 0)
+    {
+        <h4 style="color:white;padding-right:23em;font-weight:900">MP4s</h4>
+        @foreach (var mp in Model.MP4s)
+        {
+            <div class="mp-container">
+                <img class="mp-image video" src="~/img/play2.png" data-src="@mp.Path" alt="MP">
+                <span>@mp.Name</span>
+            </div>
+        }
+
+    }
+
+    @if (Model.MP3s.Count != 0)
+    {
+        <h4 style="color:white;padding-right:23em;font-weight:900">MP3s</h4>
+        @foreach (var mp in Model.MP3s)
+        {
+            <div class="mp-container">
+                <img class="mp-image video" src="~/img/play2.png" data-src="@mp.Path" alt="MP">
+                <span>@mp.Name</span>
+            </div>
+        }
+
+    }
+
+    <div class="hidden" id="popup-player">
+        <video id="player" style="width: 800px; height: 450px;" controls autoplay></video>
+        <button id="close-btn">Close</button>
+    </div>
+
+</div>
+<script>
+
+    document.querySelectorAll('.video').forEach(videoElement => {
+        videoElement.addEventListener('click', function () {
+            const videoSrc = this.getAttribute('data-src');
+            const player = document.getElementById('player');
+            const popup = document.getElementById('popup-player');
+            player.src = videoSrc;
+            popup.classList.remove('hidden');
+        });
+    });
+
+    document.getElementById('close-btn').addEventListener('click', function () {
+        const player = document.getElementById('player');
+        const popup = document.getElementById('popup-player');
+        player.pause();
+        player.currentTime = 0;
+        popup.classList.add('hidden');
+    });
+
+</script>
