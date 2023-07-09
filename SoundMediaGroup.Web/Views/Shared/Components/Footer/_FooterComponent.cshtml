@@ -2,11 +2,11 @@
 @inject IResourceService _service;
 @{
     var contacts = _service.GetContactsInfo().Description;
-    var categories =string.Join ("\n", _service
-        .GetHomeInfo()
-        .Contents
-        .Select(x=> x.Name)
-        .ToList());
+    var categories = _service
+    .GetHomeInfo()
+    .Contents
+    .Select((x, i) => (x, i))
+    .ToList();
 }
 
 <section class="u-clearfix u-container-align-center u-custom-color-5 u-section-4 customFooter" id="carousel_98a2" style="padding:3em">
@@ -30,8 +30,11 @@
                     <div class="home-container26" style="padding:0 3em 0 3em">
                         <h3>Categories</h3>
                             <div style="white-space:pre-line; font-size:23px">
-                            @categories
-                            </div>
+                            @foreach (var c in categories)
+                            {
+                                <a class="hyperLinkCategory" href="#@c.i">@c.x.Name</a>
+                            }
+                        </div>
                         </div>
                     </div>
                 </footer>
@@ -39,3 +42,16 @@
         </div>
     <h6 style="text-align:center">Version 2.0</h6>
 </section>
+
+ <style>
+     .hyperLinkCategory
+     {
+        color:white !important
+     }
+
+    .hyperLinkCategory:hover
+    {
+        color:indianred !important;
+    }
+
+ </style>
