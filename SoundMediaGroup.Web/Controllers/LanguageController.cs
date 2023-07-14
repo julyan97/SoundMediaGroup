@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Controllers.Common;
 
 namespace WebApplication1.Controllers
 {
-    [Route("[controller]")]
-    [ApiController]
-    public class LanguageController : ControllerBase
+    public class LanguageController : ApiController
     {
-
         [HttpGet]
         public ActionResult LanguageSwap(string language)
         {

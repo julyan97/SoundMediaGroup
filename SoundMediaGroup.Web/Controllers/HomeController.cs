@@ -26,25 +26,25 @@ namespace WebApplication1.Controllers
             _resourceService = resourceService;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
            var outputModel = _resourceService.GetHomeInfo();
             return View(outputModel);
         }
 
-        public IActionResult Contacts()
+        public ActionResult Contacts()
         {
             var outputModel = _resourceService.GetContactsInfo();
             return View(outputModel);
         }
 
-        public IActionResult Bio()
+        public ActionResult Bio()
         {
             var outputModel = _resourceService.GetBioInfo();
             return View(outputModel);
         }
 
-        public IActionResult Portfolio()
+        public ActionResult Portfolio()
         {
             var outputModel = _resourceService.GetPortfolioInfo();
             return View(outputModel);
@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
